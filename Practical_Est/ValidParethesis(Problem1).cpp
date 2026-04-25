@@ -1,20 +1,20 @@
 class Solution {
 public:
-    bool isValid(string s) 
-    {
-        stack<char> s1;
-        unordered_map<char,char> mapping = {
-            {'(',')'},
-            {'[',']'},
-            {'{','}'}
-        };
-        for(char c: s)
-        {
-            if(mapping.containsd(c))
-            {
-                s1.push(i);
+    bool isValid(string s) {
+        unordered_map<char, char> mapp = {{')','('}, {']','['}, {'}','{'}};
+        stack<char> st;
+
+        for (char i : s) {
+            if (mapp.count(i)) {
+                if (!st.empty() && st.top() == mapp[i]) {
+                    st.pop();
+                } else {
+                    return false;
+                }
+            } else {
+                st.push(i);
             }
-            if(!s1.isempty() &&  )
         }
+        return st.empty();
     }
 };
